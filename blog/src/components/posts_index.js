@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import {connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchPosts } from 'C:\\Users\\Syed\\Documents\\blog2React\\ReduxSimpleStarter\\src\\actions'
+import { fetchPosts } from 'C:\\Users\\Syed\\Documents\\blog2React\\ReduxSimpleStarter\\src\\actions';
 
 class PostsIndex extends Component {
 
@@ -11,6 +11,13 @@ class PostsIndex extends Component {
     this.props.fetchPosts();
 
   }
+
+  componentWillMount(){//runs after component is added to screen
+
+    this.props.fetchPosts();
+
+  }
+
 
   renderPosts(){
     _.map(this.props.posts, post => {
@@ -33,8 +40,8 @@ class PostsIndex extends Component {
         </Link >
       </div>
       <h3>Posts</h3>
-      <ul className="list-group">
-        {this.renderPosts()}
+        <ul className="list-group">
+          {this.renderPosts()}
         </ul>
       </div>
 
@@ -46,4 +53,4 @@ function mapStatetoProps(state){
   return {posts : state.posts};
 }
 
-export default connect(null, { fetchPosts: fetchPosts })(PostsIndex);
+export default connect(mapStatetoProps, { fetchPosts: fetchPosts })(PostsIndex);

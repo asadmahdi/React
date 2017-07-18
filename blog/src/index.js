@@ -9,7 +9,7 @@ import promise from 'redux-promise';
 import reducers from 'C:\\Users\\Syed\\Documents\\blog2React\\ReduxSimpleStarter\\src\\reducers';
 import PostsIndex from 'C:\\Users\\Syed\\Documents\\blog2React\\ReduxSimpleStarter\\src\\components\\posts_index';
 import PostsNew from 'C:\\Users\\Syed\\Documents\\blog2React\\ReduxSimpleStarter\\src\\components\\posts_new';
-
+import PostsShow from 'C:\\Users\\Syed\\Documents\\blog2React\\ReduxSimpleStarter\\src\\components\\posts_show';
 
 
 
@@ -22,7 +22,8 @@ ReactDOM.render(
       <div>
         <Switch>
           <Route path="/posts/new" component={PostsNew} />
-          <Route path="/" component={PostsIndex} />
+          <Route path="/posts/:id" component={PostsShow} />
+          <Route path="/"          component={PostsIndex} />
 
         </Switch>
       </div>

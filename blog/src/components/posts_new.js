@@ -28,7 +28,10 @@ class PostsNew extends Component {
   }
 
   onSubmit(values){//the bind call below provides the correct context for onSubmit...
-    this.props.createPost(values);
+    //string should match a route
+    this.props.createPost(values, () => {
+        this.props.history.push('/');
+    });
   }
   //field does not know how to display itself
   // component will provide jsx

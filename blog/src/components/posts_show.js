@@ -6,10 +6,7 @@ import { Link } from 'react-router-dom';
 class PostsShow extends Component {
 
 
-  constructor(){
-    super();
-    this.onDeleteClick = this.onDeleteClick.bind(this);
-  }
+
   componentDidMount(){
     //if(!this.props.post){}
     const{ id } = this.props.match.params;//params is wildcard from route
@@ -20,7 +17,7 @@ class PostsShow extends Component {
 
   onDeleteClick(){
     const {id } = this.props.match.params;
-    //console.log("FUCK MY TITS");
+
     this.props.deletePost(id, () => {
       this.props.history.push('/');
     });
